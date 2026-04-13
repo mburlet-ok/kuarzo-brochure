@@ -1024,15 +1024,22 @@ body { font-family: 'Inter', system-ui, sans-serif; background: var(--bg); color
     </div>
   </div>
 
-  <!-- Showreel / Video examples -->
+  <!-- Showreel -->
   <div class="reveal">
-    <div style="font-size:0.92rem;font-weight:700;margin-bottom:16px;color:var(--text)">Trabajos Recientes</div>
-    <div class="prog-videos-grid" style="grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px">
-      <div class="prog-video" onclick="openVideo('videos/gh-mercadopago.mov')"><img class="prog-video-thumb" src="videos/thumbs/gh-mercadopago.png" alt=""><div class="prog-video-play"><svg width="18" height="18" fill="white" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg></div><div class="prog-video-label">Mercado Pago — GH</div></div>
-      <div class="prog-video" onclick="openVideo('videos/es-mi-sueno-saphirus.mov')"><img class="prog-video-thumb" src="videos/thumbs/es-mi-sueno-saphirus.png" alt=""><div class="prog-video-play"><svg width="18" height="18" fill="white" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg></div><div class="prog-video-label">Saphirus — Es Mi Sueño</div></div>
-      <div class="prog-video" onclick="openVideo('videos/barbarossa-despegar.mov')"><img class="prog-video-thumb" src="videos/thumbs/barbarossa-despegar.png" alt=""><div class="prog-video-play"><svg width="18" height="18" fill="white" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg></div><div class="prog-video-label">Despegar — Barbarossa</div></div>
-      <div class="prog-video" onclick="openVideo('videos/cocina-rebelde-cif.mov')"><img class="prog-video-thumb" src="videos/thumbs/cocina-rebelde-cif.png" alt=""><div class="prog-video-play"><svg width="18" height="18" fill="white" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg></div><div class="prog-video-label">Cif — Cocina Rebelde</div></div>
-      <div class="prog-video" onclick="openVideo('videos/gh-travelrock.mov')"><img class="prog-video-thumb" src="videos/thumbs/gh-travelrock.png" alt=""><div class="prog-video-play"><svg width="18" height="18" fill="white" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg></div><div class="prog-video-label">Travel Rock — GH</div></div>
+    <div style="font-size:0.92rem;font-weight:700;margin-bottom:16px;color:var(--text)">Nuestro Trabajo</div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px">
+      <div style="border-radius:12px;overflow:hidden;border:1px solid var(--border);cursor:pointer;transition:all 0.3s" onclick="openVideo('videos/kc-reel-1.mp4')">
+        <video muted preload="metadata" style="width:100%;display:block" src="videos/kc-reel-1.mp4#t=0.5"></video>
+        <div style="padding:10px 14px;background:var(--surface);display:flex;align-items:center;gap:8px"><svg width="14" height="14" fill="#00e5ff" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg><span style="font-size:0.75rem;color:var(--muted)">Ver video</span></div>
+      </div>
+      <div style="border-radius:12px;overflow:hidden;border:1px solid var(--border);cursor:pointer;transition:all 0.3s" onclick="openVideo('videos/kc-reel-2.mp4')">
+        <video muted preload="metadata" style="width:100%;display:block" src="videos/kc-reel-2.mp4#t=0.5"></video>
+        <div style="padding:10px 14px;background:var(--surface);display:flex;align-items:center;gap:8px"><svg width="14" height="14" fill="#00e5ff" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg><span style="font-size:0.75rem;color:var(--muted)">Ver video</span></div>
+      </div>
+      <div style="border-radius:12px;overflow:hidden;border:1px solid var(--border);cursor:pointer;transition:all 0.3s" onclick="openVideo('videos/kc-reel-3.mp4')">
+        <video muted preload="metadata" style="width:100%;display:block" src="videos/kc-reel-3.mp4#t=0.5"></video>
+        <div style="padding:10px 14px;background:var(--surface);display:flex;align-items:center;gap:8px"><svg width="14" height="14" fill="#00e5ff" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg><span style="font-size:0.75rem;color:var(--muted)">Ver video</span></div>
+      </div>
     </div>
   </div>
 
