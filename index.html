@@ -841,40 +841,98 @@ body { font-family: 'Inter', system-ui, sans-serif; background: var(--bg); color
 </section>
 
 
-  <div style="margin-top:30px" class="reveal">
-    <div style="font-size:0.92rem;font-weight:700;margin-bottom:16px;color:var(--text)">Alcance Digital</div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px">
-      <div style="background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px;text-align:center">
-        <div style="font-size:0.7rem;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px">YouTube</div>
-        <div style="font-size:1.5rem;font-weight:800;color:#ff0000">50K+</div>
-        <div style="font-size:0.7rem;color:var(--muted);margin-top:4px">Suscriptores</div>
+  <!-- ALCANCE DIGITAL RCV -->
+  <div style="margin-top:40px" class="reveal">
+    <div style="font-size:1.1rem;font-weight:800;margin-bottom:6px;color:var(--text)">Alcance Digital</div>
+    <div style="font-size:0.82rem;color:var(--muted);margin-bottom:20px">Radio Con Vos en todas las plataformas</div>
+
+    <!-- Gráfica de crecimiento -->
+    <div style="background:linear-gradient(135deg, rgba(155,89,182,0.08) 0%, rgba(22,22,31,1) 100%);border:1px solid rgba(155,89,182,0.2);border-radius:16px;padding:28px;margin-bottom:20px">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px">
+        <div>
+          <div style="font-size:0.7rem;color:var(--muted);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:4px">Crecimiento en facturación</div>
+          <div style="font-size:2.2rem;font-weight:900;background:linear-gradient(135deg,#9b59b6,#e74c3c);-webkit-background-clip:text;-webkit-text-fill-color:transparent">+290%</div>
+          <div style="font-size:0.78rem;color:var(--muted)">2024 vs 2025</div>
+        </div>
+        <div style="text-align:right">
+          <div style="font-size:0.7rem;color:var(--muted);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:4px">Proyección 2026</div>
+          <div style="font-size:1.8rem;font-weight:900;color:#2ecc71">+185%</div>
+          <div style="font-size:0.78rem;color:var(--muted)">vs 2025 estimado</div>
+        </div>
       </div>
-      <div style="background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px;text-align:center">
-        <div style="font-size:0.7rem;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px">Instagram</div>
-        <div style="font-size:1.5rem;font-weight:800;color:#e1306c">120K+</div>
-        <div style="font-size:0.7rem;color:var(--muted);margin-top:4px">Seguidores</div>
+      <svg viewBox="0 0 600 120" style="width:100%;height:auto">
+        <!-- Grid lines -->
+        <line x1="0" y1="100" x2="600" y2="100" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
+        <line x1="0" y1="70" x2="600" y2="70" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
+        <line x1="0" y1="40" x2="600" y2="40" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
+        <!-- Area fill -->
+        <defs>
+          <linearGradient id="chartGrad" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#9b59b6" stop-opacity="0.4"/>
+            <stop offset="100%" stop-color="#9b59b6" stop-opacity="0"/>
+          </linearGradient>
+        </defs>
+        <path d="M0,100 L100,95 L200,85 L300,60 L400,30 L500,15 L600,5 L600,120 L0,120Z" fill="url(#chartGrad)"/>
+        <!-- Line -->
+        <polyline points="0,100 100,95 200,85 300,60 400,30 500,15 600,5" fill="none" stroke="#9b59b6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <!-- Dots -->
+        <circle cx="0" cy="100" r="4" fill="#9b59b6"/>
+        <circle cx="100" cy="95" r="4" fill="#9b59b6"/>
+        <circle cx="200" cy="85" r="4" fill="#9b59b6"/>
+        <circle cx="300" cy="60" r="4" fill="#9b59b6"/>
+        <circle cx="400" cy="30" r="4" fill="#9b59b6"/>
+        <circle cx="500" cy="15" r="5" fill="#9b59b6" stroke="#fff" stroke-width="2"/>
+        <circle cx="600" cy="5" r="5" fill="#2ecc71" stroke="#fff" stroke-width="2"/>
+        <!-- Labels -->
+        <text x="0" y="115" fill="rgba(255,255,255,0.3)" font-size="9" font-family="Inter">2021</text>
+        <text x="100" y="115" fill="rgba(255,255,255,0.3)" font-size="9" font-family="Inter">2022</text>
+        <text x="200" y="115" fill="rgba(255,255,255,0.3)" font-size="9" font-family="Inter">2023</text>
+        <text x="300" y="115" fill="rgba(255,255,255,0.3)" font-size="9" font-family="Inter">2024</text>
+        <text x="400" y="115" fill="rgba(255,255,255,0.3)" font-size="9" font-family="Inter">2025</text>
+        <text x="490" y="115" fill="rgba(255,255,255,0.3)" font-size="9" font-family="Inter">H1 2026</text>
+        <text x="575" y="115" fill="rgba(46,204,113,0.5)" font-size="9" font-family="Inter" font-weight="700">Proy.</text>
+      </svg>
+    </div>
+
+    <!-- Stats grid -->
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px">
+      <div style="background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px;text-align:center;position:relative;overflow:hidden">
+        <div style="position:absolute;top:0;left:0;right:0;height:2px;background:#ff0000"></div>
+        <div style="font-size:0.68rem;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px">YouTube</div>
+        <div style="font-size:1.6rem;font-weight:900;color:#ff0000">50K+</div>
+        <div style="font-size:0.68rem;color:var(--muted);margin-top:4px">Suscriptores</div>
       </div>
-      <div style="background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px;text-align:center">
-        <div style="font-size:0.7rem;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px">X (Twitter)</div>
-        <div style="font-size:1.5rem;font-weight:800;color:#1da1f2">85K+</div>
-        <div style="font-size:0.7rem;color:var(--muted);margin-top:4px">Seguidores</div>
+      <div style="background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px;text-align:center;position:relative;overflow:hidden">
+        <div style="position:absolute;top:0;left:0;right:0;height:2px;background:#e1306c"></div>
+        <div style="font-size:0.68rem;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px">Instagram</div>
+        <div style="font-size:1.6rem;font-weight:900;color:#e1306c">120K+</div>
+        <div style="font-size:0.68rem;color:var(--muted);margin-top:4px">Seguidores</div>
       </div>
-      <div style="background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px;text-align:center">
-        <div style="font-size:0.7rem;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px">Streaming</div>
-        <div style="font-size:1.5rem;font-weight:800;color:var(--radio)">15K+</div>
-        <div style="font-size:0.7rem;color:var(--muted);margin-top:4px">Oyentes en vivo</div>
+      <div style="background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px;text-align:center;position:relative;overflow:hidden">
+        <div style="position:absolute;top:0;left:0;right:0;height:2px;background:#1da1f2"></div>
+        <div style="font-size:0.68rem;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px">X (Twitter)</div>
+        <div style="font-size:1.6rem;font-weight:900;color:#1da1f2">85K+</div>
+        <div style="font-size:0.68rem;color:var(--muted);margin-top:4px">Seguidores</div>
       </div>
-      <div style="background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px;text-align:center">
-        <div style="font-size:0.7rem;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px">Spotify</div>
-        <div style="font-size:1.5rem;font-weight:800;color:#1db954">Podcasts</div>
-        <div style="font-size:0.7rem;color:var(--muted);margin-top:4px">Todos los programas</div>
+      <div style="background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px;text-align:center;position:relative;overflow:hidden">
+        <div style="position:absolute;top:0;left:0;right:0;height:2px;background:var(--radio)"></div>
+        <div style="font-size:0.68rem;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px">Streaming</div>
+        <div style="font-size:1.6rem;font-weight:900;color:var(--radio)">15K+</div>
+        <div style="font-size:0.68rem;color:var(--muted);margin-top:4px">Oyentes en vivo</div>
+      </div>
+      <div style="background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px;text-align:center;position:relative;overflow:hidden">
+        <div style="position:absolute;top:0;left:0;right:0;height:2px;background:#1db954"></div>
+        <div style="font-size:0.68rem;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px">Spotify</div>
+        <div style="font-size:1.6rem;font-weight:900;color:#1db954">Podcasts</div>
+        <div style="font-size:0.68rem;color:var(--muted);margin-top:4px">Todos los programas</div>
       </div>
     </div>
+
+    <!-- Tags -->
     <div style="margin-top:16px;display:flex;gap:10px;flex-wrap:wrap">
-      <div style="background:rgba(155,89,182,0.1);border:1px solid rgba(155,89,182,0.2);border-radius:8px;padding:10px 16px;font-size:0.78rem;color:var(--radio)">Transmision en vivo por YouTube, Twitch y web</div>
-      <div style="background:rgba(155,89,182,0.1);border:1px solid rgba(155,89,182,0.2);border-radius:8px;padding:10px 16px;font-size:0.78rem;color:var(--radio)">Contenido nativo en redes sociales</div>
-      <div style="background:rgba(155,89,182,0.1);border:1px solid rgba(155,89,182,0.2);border-radius:8px;padding:10px 16px;font-size:0.78rem;color:var(--radio)">App disponible en iOS y Android</div>
-      <div style="background:rgba(155,89,182,0.1);border:1px solid rgba(155,89,182,0.2);border-radius:8px;padding:10px 16px;font-size:0.78rem;color:var(--radio)">Crecimiento 2024 vs 2025: +290% en facturacion</div>
+      <div style="background:rgba(155,89,182,0.1);border:1px solid rgba(155,89,182,0.2);border-radius:8px;padding:10px 16px;font-size:0.78rem;color:var(--radio)">En vivo por YouTube, Twitch y web</div>
+      <div style="background:rgba(155,89,182,0.1);border:1px solid rgba(155,89,182,0.2);border-radius:8px;padding:10px 16px;font-size:0.78rem;color:var(--radio)">Contenido nativo en redes</div>
+      <div style="background:rgba(155,89,182,0.1);border:1px solid rgba(155,89,182,0.2);border-radius:8px;padding:10px 16px;font-size:0.78rem;color:var(--radio)">App iOS y Android</div>
     </div>
   </div>
 </section>
