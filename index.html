@@ -714,48 +714,107 @@ body { font-family: 'Inter', system-ui, sans-serif; background: var(--bg); color
 
 <!-- MIX TV -->
 <section class="section" id="mixtv">
-  <div class="section-header reveal">
-    <div class="section-tag" style="background:rgba(255,23,68,0.12);color:#ff1744">Mix TV</div>
-    <h2 class="section-title">Mix TV</h2>
-    <p class="section-sub">El nuevo canal de Kuarzo. Periodismo, actualidad, entretenimiento y humor con las voces mas relevantes.</p>
-  </div>
-  <div class="programs-grid">
-    <div class="prog-card reveal reveal-delay-1">
-      <div style="height:3px;background:linear-gradient(90deg,#ff6d00,#ffab40)"></div>
-      <img class="prog-img" src="img/programs/mix-kuarzokids.png" alt="Kuarzo Kids">
-      <div class="prog-body">
-        <div class="prog-channel" style="color:#ff6d00">Mix TV | 6:00 y 17:00hs</div>
-        <div class="prog-name">Kuarzo Kids</div>
-        <div class="prog-schedule">Todos los dias — 6:00 a 7:00hs y 17:00 a 18:00hs</div>
-        <div class="prog-divider"></div>
-        <div class="prog-desc">Segmento infantil con contenido para los mas chicos. Entretenimiento y educacion en la pantalla de Mix TV.</div>
+
+  <!-- HERO IMPONENTE MIX TV -->
+  <div class="reveal" style="position:relative;background:linear-gradient(135deg,#1a0512 0%,#0d0d1a 45%,#0a1020 100%);border:1px solid rgba(255,23,68,0.25);border-radius:24px;padding:60px 50px;margin-bottom:50px;overflow:hidden">
+    <div style="position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,#ff1744,#ff6d00,#ffab40,#ff1744);background-size:200% auto;animation:gradientShift 4s ease infinite"></div>
+    <div style="position:absolute;top:-30%;right:-15%;width:500px;height:500px;background:radial-gradient(circle,rgba(255,23,68,0.12) 0%,transparent 70%);border-radius:50%;pointer-events:none"></div>
+    <div style="position:absolute;bottom:-40%;left:-10%;width:400px;height:400px;background:radial-gradient(circle,rgba(255,109,0,0.08) 0%,transparent 70%);border-radius:50%;pointer-events:none"></div>
+
+    <div style="position:relative;z-index:1">
+      <div style="display:inline-flex;align-items:center;gap:10px;padding:7px 16px;background:rgba(255,23,68,0.15);border:1px solid rgba(255,23,68,0.4);border-radius:50px;margin-bottom:24px">
+        <span style="width:8px;height:8px;background:#ff1744;border-radius:50%;animation:pulse 2s infinite"></span>
+        <span style="font-size:0.7rem;font-weight:800;letter-spacing:2px;color:#ff1744;text-transform:uppercase">Nuevo canal de Kuarzo</span>
+      </div>
+
+      <h2 style="font-size:clamp(3rem,7vw,5.5rem);font-weight:900;letter-spacing:-2.5px;line-height:0.95;margin-bottom:18px;background:linear-gradient(135deg,#fff 0%,#ff6d00 60%,#ff1744 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent">Mix TV</h2>
+
+      <div style="font-size:1.35rem;font-weight:700;color:#fff;margin-bottom:14px;letter-spacing:-0.3px">Periodismo, actualidad, entretenimiento y humor — las 24 horas.</div>
+      <p style="font-size:1rem;color:var(--muted);max-width:720px;line-height:1.7;margin-bottom:36px">El nuevo canal de Kuarzo Entertainment llega con una grilla en vivo de lunes a viernes y la mejor programacion del fin de semana. Las voces mas escuchadas del periodismo, el deporte y el espectaculo argentino, ahora en TV abierta digital.</p>
+
+      <!-- DESTACADO TDA 21.1 -->
+      <div style="display:flex;gap:16px;flex-wrap:wrap;align-items:stretch;margin-bottom:32px">
+        <div style="flex:2;min-width:280px;background:linear-gradient(135deg,rgba(255,23,68,0.18) 0%,rgba(255,109,0,0.12) 100%);border:1.5px solid rgba(255,23,68,0.5);border-radius:16px;padding:24px 28px;position:relative;overflow:hidden">
+          <div style="position:absolute;top:14px;right:18px;font-size:0.62rem;font-weight:800;letter-spacing:1.5px;color:#ff1744;background:rgba(255,23,68,0.18);padding:4px 10px;border-radius:50px;text-transform:uppercase">Nuevo</div>
+          <div style="font-size:0.68rem;font-weight:800;color:#ff6d00;letter-spacing:2px;text-transform:uppercase;margin-bottom:8px">TDA — TV Digital Abierta</div>
+          <div style="display:flex;align-items:baseline;gap:14px;margin-bottom:6px">
+            <div style="font-size:3.4rem;font-weight:900;background:linear-gradient(135deg,#ff1744,#ff6d00);-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1;letter-spacing:-2px">21.1</div>
+            <div style="font-size:0.85rem;color:var(--text);font-weight:700">Canal de aire</div>
+          </div>
+          <div style="font-size:0.85rem;color:var(--muted);line-height:1.5">Mix TV sale al aire por el canal <strong style="color:#fff">21.1</strong> de la Television Digital Abierta. Llegada gratuita, en alta definicion y a todo el pais.</div>
+        </div>
+        <div style="flex:1;min-width:240px;display:flex;flex-direction:column;gap:12px">
+          <div style="flex:1;background:var(--card);border:1px solid var(--border);border-radius:14px;padding:18px 22px;display:flex;align-items:center;justify-content:space-between">
+            <div>
+              <div style="font-size:0.62rem;color:var(--muted);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:4px">En cable</div>
+              <div style="font-size:1rem;font-weight:800;color:#fff">Flow</div>
+            </div>
+            <div style="font-size:1.4rem;font-weight:900;color:#ff6d00">85</div>
+          </div>
+          <div style="flex:1;background:var(--card);border:1px solid var(--border);border-radius:14px;padding:18px 22px;display:flex;align-items:center;justify-content:space-between">
+            <div>
+              <div style="font-size:0.62rem;color:var(--muted);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:4px">Streaming</div>
+              <div style="font-size:1rem;font-weight:800;color:#fff">YouTube Live</div>
+            </div>
+            <div style="font-size:1rem;font-weight:700;color:#ff1744">24/7</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- STATS -->
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:14px">
+        <div style="background:rgba(255,255,255,0.03);border:1px solid var(--border);border-radius:12px;padding:18px 16px;text-align:center">
+          <div style="font-size:1.9rem;font-weight:900;background:linear-gradient(135deg,#ff1744,#ff6d00);-webkit-background-clip:text;-webkit-text-fill-color:transparent">9</div>
+          <div style="font-size:0.7rem;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-top:2px">Programas en grilla</div>
+        </div>
+        <div style="background:rgba(255,255,255,0.03);border:1px solid var(--border);border-radius:12px;padding:18px 16px;text-align:center">
+          <div style="font-size:1.9rem;font-weight:900;background:linear-gradient(135deg,#ff1744,#ff6d00);-webkit-background-clip:text;-webkit-text-fill-color:transparent">24h</div>
+          <div style="font-size:0.7rem;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-top:2px">Programacion continua</div>
+        </div>
+        <div style="background:rgba(255,255,255,0.03);border:1px solid var(--border);border-radius:12px;padding:18px 16px;text-align:center">
+          <div style="font-size:1.9rem;font-weight:900;background:linear-gradient(135deg,#ff1744,#ff6d00);-webkit-background-clip:text;-webkit-text-fill-color:transparent">TV abierta</div>
+          <div style="font-size:0.7rem;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-top:2px">Alcance nacional</div>
+        </div>
+        <div style="background:rgba(255,255,255,0.03);border:1px solid var(--border);border-radius:12px;padding:18px 16px;text-align:center">
+          <div style="font-size:1.9rem;font-weight:900;background:linear-gradient(135deg,#ff1744,#ff6d00);-webkit-background-clip:text;-webkit-text-fill-color:transparent">HD</div>
+          <div style="font-size:0.7rem;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-top:2px">Alta definicion</div>
+        </div>
       </div>
     </div>
-    <div class="prog-card reveal reveal-delay-2">
+  </div>
+
+  <div class="section-header reveal" style="margin-bottom:32px">
+    <div class="section-tag" style="background:rgba(255,23,68,0.12);color:#ff1744">Grilla Mix TV</div>
+    <h2 class="section-title" style="font-size:1.8rem">Programacion en vivo</h2>
+    <p class="section-sub">Grilla actualizada — semana del 16 al 22 de Mayo 2026.</p>
+  </div>
+
+  <div class="programs-grid">
+    <div class="prog-card reveal reveal-delay-1">
       <div style="height:3px;background:linear-gradient(90deg,#e91e63,#ff5252)"></div>
       <img class="prog-img" src="img/programs/mix-donde.png" alt="Donde Estamos">
       <div class="prog-body">
         <div class="prog-channel" style="color:#e91e63">Mix TV | L a V 7:00hs</div>
         <div class="prog-name">Donde Estamos</div>
-        <div class="prog-host">Paulino Rodriguez, Julieta Tarres</div>
-        <div class="prog-schedule">Lunes a Viernes — 7:00 a 10:00hs</div>
+        <div class="prog-host">Paulino Rodriguez, Julieta Tarres, Paulino Salamanca</div>
+        <div class="prog-schedule">Lunes a Viernes — 7:00 a 10:00hs · Repeticion sabados y domingos 7:00hs</div>
         <div class="prog-divider"></div>
-        <div class="prog-desc">El matutino de Mix TV. Paulino Rodriguez y Julieta Tarres con toda la actualidad, noticias y analisis para arrancar el dia informado.</div>
+        <div class="prog-desc">El matutino de Mix TV. Paulino Rodriguez, Julieta Tarres y Paulino Salamanca con toda la actualidad, noticias y analisis para arrancar el dia informado.</div>
       </div>
     </div>
-    <div class="prog-card reveal reveal-delay-3">
+    <div class="prog-card reveal reveal-delay-2">
       <div style="height:3px;background:linear-gradient(90deg,#1565c0,#42a5f5)"></div>
       <img class="prog-img" src="img/programs/mix-nosomos.png" alt="No Somos Nadie">
       <div class="prog-body">
         <div class="prog-channel" style="color:#42a5f5">Mix TV | L a V 10:00hs</div>
         <div class="prog-name">No Somos Nadie</div>
         <div class="prog-host">Juan Pablo Varsky, Eleonora Perez Carezzi</div>
-        <div class="prog-schedule">Lunes a Viernes — 10:00 a 14:00hs</div>
+        <div class="prog-schedule">Lunes a Viernes — 10:00 a 14:00hs · Repeticion sabados y domingos 10:00hs</div>
         <div class="prog-divider"></div>
         <div class="prog-desc">Varsky y Perez Carezzi al frente del programa central de la manana. Periodismo, entrevistas y opinion con las voces mas respetadas.</div>
       </div>
     </div>
-    <div class="prog-card reveal reveal-delay-1">
+    <div class="prog-card reveal reveal-delay-3">
       <div style="height:3px;background:linear-gradient(90deg,#00c853,#69f0ae)"></div>
       <img class="prog-img" src="img/programs/mix-coworker.png" alt="Coworker">
       <div class="prog-body">
@@ -767,47 +826,87 @@ body { font-family: 'Inter', system-ui, sans-serif; background: var(--bg); color
         <div class="prog-desc">La tarde de Mix TV con Agustina Casanova y Mariano Almada. Actualidad, entretenimiento y la mejor compania para las tardes.</div>
       </div>
     </div>
-    <div class="prog-card reveal reveal-delay-2">
-      <div style="height:3px;background:linear-gradient(90deg,#9c27b0,#ce93d8)"></div>
-      <img class="prog-img" src="img/programs/mix-moranza.png" alt="Mas Moranza">
+    <div class="prog-card reveal reveal-delay-1">
+      <div style="height:3px;background:linear-gradient(90deg,#ff6d00,#ffab40)"></div>
+      <img class="prog-img" src="img/programs/mix-locos.png" alt="Estamos Todos Locos">
       <div class="prog-body">
-        <div class="prog-channel" style="color:#ce93d8">Mix TV | L a V 18:00hs</div>
-        <div class="prog-name">Mas Moranza</div>
-        <div class="prog-host">Diego Moranzoni</div>
-        <div class="prog-schedule">Lunes a Viernes — 18:00 a 20:00hs</div>
+        <div class="prog-channel" style="color:#ff6d00">Mix TV | Sab y Dom</div>
+        <div class="prog-name">Estamos Todos Locos</div>
+        <div class="prog-host">Gaston Trezeguet</div>
+        <div class="prog-schedule">Sabados y domingos — Varias franjas (6:00, 17:00, 21:00 y 12:00 AM)</div>
         <div class="prog-divider"></div>
-        <div class="prog-desc">Diego Moranzoni con su estilo unico. Entrevistas, humor y los temas que importan en el prime time de la tarde.</div>
+        <div class="prog-desc">Gaston Trezeguet al frente del fin de semana de Mix TV. Humor, entrevistas y la mirada mas desfachatada para los sabados y domingos.</div>
+      </div>
+    </div>
+    <div class="prog-card reveal reveal-delay-2">
+      <div style="height:3px;background:linear-gradient(90deg,#ffea00,#ffd600)"></div>
+      <img class="prog-img" src="img/programs/mix-sepico.png" alt="Se Pico">
+      <div class="prog-body">
+        <div class="prog-channel" style="color:#ffd600">Mix TV | L a V 18:00hs</div>
+        <div class="prog-name">Se Pico</div>
+        <div class="prog-host">Gaston Trezeguet</div>
+        <div class="prog-schedule">Lunes a Viernes — 18:00hs · Repeticion 23:00hs y 5:00 AM</div>
+        <div class="prog-divider"></div>
+        <div class="prog-desc">El programa que sube la temperatura de la tarde-noche. Trezeguet con polemica, humor y los temas mas calientes del dia.</div>
       </div>
     </div>
     <div class="prog-card reveal reveal-delay-3">
       <div style="height:3px;background:linear-gradient(90deg,#00bcd4,#80deea)"></div>
       <img class="prog-img" src="img/programs/mix-fabrica.png" alt="La Fabrica del Podcast">
       <div class="prog-body">
-        <div class="prog-channel" style="color:#80deea">Mix TV | Todos los dias 20:00hs</div>
+        <div class="prog-channel" style="color:#80deea">Mix TV | Lun, Mier y fin de semana</div>
         <div class="prog-name">La Fabrica del Podcast</div>
-        <div class="prog-host">Roman Guajardo</div>
-        <div class="prog-schedule">Todos los dias — 20:00 a 22:00hs</div>
+        <div class="prog-host">Claudio Zuchovicki, Esteban Wolf</div>
+        <div class="prog-schedule">Lunes y miercoles 20:00hs · Sabados y domingos 19:00hs</div>
         <div class="prog-divider"></div>
-        <div class="prog-desc">El cruce entre el mundo podcast y la television. Roman Guajardo trae los mejores contenidos del formato mas escuchado al prime time nocturno.</div>
+        <div class="prog-desc">El cruce entre el mundo podcast y la television. Claudio Zuchovicki y Esteban Wolf traen los mejores contenidos del formato mas escuchado al prime time.</div>
       </div>
     </div>
     <div class="prog-card reveal reveal-delay-1">
+      <div style="height:3px;background:linear-gradient(90deg,#7c4dff,#b388ff)"></div>
+      <img class="prog-img" src="img/programs/mix-spoiler.png" alt="Puede Funcionar">
+      <div class="prog-body">
+        <div class="prog-channel" style="color:#b388ff">Mix TV | Martes 20:00hs</div>
+        <div class="prog-name">Puede Funcionar</div>
+        <div class="prog-schedule">Martes — 20:00hs</div>
+        <div class="prog-divider"></div>
+        <div class="prog-desc">El espacio del prime time de los martes en Mix TV. Ideas, conversaciones y entrevistas que ponen a prueba lo que puede funcionar — o no.</div>
+      </div>
+    </div>
+    <div class="prog-card reveal reveal-delay-2">
+      <div style="height:3px;background:linear-gradient(90deg,#26a69a,#4db6ac)"></div>
+      <img class="prog-img" src="img/programs/mix-losbro.png" alt="Camara en Mano">
+      <div class="prog-body">
+        <div class="prog-channel" style="color:#4db6ac">Mix TV | Lun 17hs y Jue 23hs</div>
+        <div class="prog-name">Camara en Mano</div>
+        <div class="prog-schedule">Lunes 17:00hs · Jueves 23:00hs</div>
+        <div class="prog-divider"></div>
+        <div class="prog-desc">Reportajes en la calle, en vivo y sin filtros. La camara que recorre el pais para contar lo que nadie ve.</div>
+      </div>
+    </div>
+    <div class="prog-card reveal reveal-delay-3">
       <div style="height:3px;background:linear-gradient(90deg,#ff1744,#ff5252)"></div>
       <img class="prog-img" src="img/programs/mix-policias.png" alt="Policías en Acción">
       <div class="prog-body">
-        <div class="prog-channel" style="color:#ff5252">Mix TV | 22:00hs</div>
-        <div class="prog-name">Policías en Acción</div>
-        <div class="prog-schedule">Todos los dias — 22:00hs</div>
+        <div class="prog-channel" style="color:#ff5252">Mix TV | Prime time</div>
+        <div class="prog-name">Policias en Accion</div>
+        <div class="prog-schedule">Lunes 21:00hs · Sabados y domingos 22:00hs · Repeticion 2:00 AM y 4:00 AM</div>
         <div class="prog-divider"></div>
-        <div class="prog-desc">El clásico documental que sigue el día a día de las fuerzas policiales. Adrenalina, casos reales y operativos en vivo en el prime time de Mix TV.</div>
+        <div class="prog-desc">El clasico documental que sigue el dia a dia de las fuerzas policiales. Adrenalina, casos reales y operativos en vivo en el prime time de Mix TV.</div>
       </div>
     </div>
   </div>
 
-  <div style="margin-top:30px" class="reveal">
-    <div style="font-size:0.85rem;font-weight:700;margin-bottom:14px;color:var(--text)">Donde ver Mix TV</div>
+  <!-- DONDE VER MIX TV -->
+  <div style="margin-top:40px" class="reveal">
+    <div style="font-size:0.95rem;font-weight:800;margin-bottom:16px;color:var(--text)">Donde ver Mix TV</div>
     <div style="display:flex;gap:12px;flex-wrap:wrap">
-      <div style="background:var(--card);border:1px solid var(--border);border-radius:10px;padding:12px 20px;font-size:0.82rem"><span style="font-weight:700">Flow</span> <span style="color:var(--muted);margin-left:6px">Ch. 85</span></div>
+      <div style="background:linear-gradient(135deg,rgba(255,23,68,0.18),rgba(255,109,0,0.10));border:1.5px solid rgba(255,23,68,0.5);border-radius:10px;padding:14px 22px;font-size:0.85rem;position:relative">
+        <span style="position:absolute;top:-8px;right:10px;font-size:0.55rem;font-weight:800;letter-spacing:1px;color:#fff;background:#ff1744;padding:3px 8px;border-radius:50px;text-transform:uppercase">Nuevo</span>
+        <span style="font-weight:800;color:#fff">TDA Digital</span> <span style="color:#ff6d00;margin-left:8px;font-weight:700">Ch. 21.1</span>
+      </div>
+      <div style="background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px 22px;font-size:0.85rem"><span style="font-weight:700">Flow</span> <span style="color:var(--muted);margin-left:6px">Ch. 85</span></div>
+      <div style="background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px 22px;font-size:0.85rem"><span style="font-weight:700">YouTube Live</span> <span style="color:var(--muted);margin-left:6px">24/7</span></div>
     </div>
   </div>
 </section>
