@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Mix TV — El nuevo canal de Kuarzo | TDA 21.1</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+:root {
+  --bg: #08080d;
+  --surface: #111118;
+  --card: #16161f;
+  --border: #222233;
+  --text: #e8e8ef;
+  --muted: #7a7a8e;
+  --mix-red: #ff1744;
+  --mix-orange: #ff6d00;
+  --mix-amber: #ffab40;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: 'Inter', system-ui, sans-serif; background: var(--bg); color: var(--text); overflow-x: hidden; }
+
+@keyframes fadeUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+@keyframes gradientShift { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+
+.reveal { opacity: 0; transform: translateY(40px); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+
+/* NAV */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  padding: 16px 40px;
+  background: rgba(8,8,13,0.85);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  display: flex; align-items: center; justify-content: space-between;
+  transition: all 0.3s;
+}
+.nav-logo { font-size: 1.1rem; font-weight: 800; letter-spacing: 3px; color: var(--text); }
+.nav-links { display: flex; gap: 28px; }
+.nav-links a { color: var(--muted); text-decoration: none; font-size: 0.78rem; font-weight: 500; letter-spacing: 1px; text-transform: uppercase; transition: color 0.3s; }
+.nav-links a:hover { color: var(--text); }
+
+/* HERO */
+.hero {
+  min-height: 92vh;
+  display: flex; flex-direction: column; justify-content: center;
+  padding: 140px 60px 80px;
+  max-width: 1300px;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute; top: -10%; right: -15%;
+  width: 700px; height: 700px;
+  background: radial-gradient(circle, rgba(255,23,68,0.15) 0%, transparent 65%);
+  border-radius: 50%;
+  z-index: 0;
+  animation: pulse 6s ease infinite;
+}
+.hero::after {
+  content: '';
+  position: absolute; bottom: -20%; left: -10%;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(255,109,0,0.10) 0%, transparent 60%);
+  border-radius: 50%;
+  z-index: 0;
+}
+.hero > * { position: relative; z-index: 1; }
+
+.hero-tag {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 8px 18px;
+  background: rgba(255,23,68,0.15);
+  border: 1px solid rgba(255,23,68,0.4);
+  border-radius: 50px;
+  font-size: 0.72rem; font-weight: 800;
+  letter-spacing: 2px;
+  color: var(--mix-red);
+  text-transform: uppercase;
+  margin-bottom: 28px;
+  width: max-content;
+  animation: fadeIn 1s ease;
+}
+.hero-tag .dot { width: 8px; height: 8px; background: var(--mix-red); border-radius: 50%; animation: pulse 2s infinite; }
+
+.hero h1 {
+  font-size: clamp(4rem, 11vw, 9rem);
+  font-weight: 900;
+  line-height: 0.95;
+  letter-spacing: -4px;
+  margin-bottom: 26px;
+  background: linear-gradient(135deg, #fff 0%, var(--mix-orange) 50%, var(--mix-red) 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: fadeUp 1s ease, gradientShift 6s ease infinite;
+}
+.hero-headline {
+  font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 18px;
+  letter-spacing: -0.5px;
+  max-width: 800px;
+  line-height: 1.3;
+  animation: fadeUp 1s ease 0.15s both;
+}
+.hero p {
+  font-size: 1.1rem;
+  color: var(--muted);
+  max-width: 720px;
+  line-height: 1.7;
+  margin-bottom: 44px;
+  animation: fadeUp 1s ease 0.25s both;
+}
+
+/* TDA 21.1 Hero Block */
+.tda-hero {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 18px;
+  margin-bottom: 38px;
+  animation: fadeUp 1s ease 0.35s both;
+}
+@media (max-width: 768px) {
+  .tda-hero { grid-template-columns: 1fr; }
+}
+.tda-main {
+  background: linear-gradient(135deg, rgba(255,23,68,0.20) 0%, rgba(255,109,0,0.12) 100%);
+  border: 1.5px solid rgba(255,23,68,0.5);
+  border-radius: 18px;
+  padding: 30px 34px;
+  position: relative;
+}
+.tda-main .nuevo {
+  position: absolute; top: 18px; right: 22px;
+  font-size: 0.65rem; font-weight: 800; letter-spacing: 1.5px;
+  color: #fff; background: var(--mix-red);
+  padding: 4px 12px; border-radius: 50px;
+  text-transform: uppercase;
+}
+.tda-main .label {
+  font-size: 0.72rem; font-weight: 800;
+  color: var(--mix-orange);
+  letter-spacing: 2px; text-transform: uppercase;
+  margin-bottom: 12px;
+}
+.tda-main .channel {
+  display: flex; align-items: baseline; gap: 18px;
+  margin-bottom: 10px;
+}
+.tda-main .channel-num {
+  font-size: clamp(3.5rem, 7vw, 5rem);
+  font-weight: 900;
+  background: linear-gradient(135deg, var(--mix-red), var(--mix-orange));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 1;
+  letter-spacing: -3px;
+}
+.tda-main .channel-sub {
+  font-size: 1rem; color: var(--text);
+  font-weight: 700;
+}
+.tda-main .channel-desc {
+  font-size: 0.9rem; color: var(--muted);
+  line-height: 1.6;
+}
+.tda-side { display: flex; flex-direction: column; gap: 14px; }
+.tda-side-item {
+  flex: 1;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 20px 24px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.tda-side-item .label {
+  font-size: 0.62rem; color: var(--muted);
+  letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 5px;
+}
+.tda-side-item .name { font-size: 1rem; font-weight: 800; color: #fff; }
+.tda-side-item .num {
+  font-size: 1.6rem; font-weight: 900;
+  color: var(--mix-orange);
+}
+
+/* STATS */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 14px;
+  animation: fadeUp 1s ease 0.45s both;
+}
+.stat-card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 22px 18px;
+  text-align: center;
+}
+.stat-card .num {
+  font-size: 2rem; font-weight: 900;
+  background: linear-gradient(135deg, var(--mix-red), var(--mix-orange));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.stat-card .label {
+  font-size: 0.7rem; color: var(--muted);
+  text-transform: uppercase; letter-spacing: 1px; margin-top: 4px;
+}
+
+/* SECTION */
+.section { padding: 90px 40px; max-width: 1300px; margin: 0 auto; }
+.section-header { margin-bottom: 40px; }
+.section-tag {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 5px 14px;
+  background: rgba(255,23,68,0.12);
+  color: var(--mix-red);
+  border-radius: 6px;
+  font-size: 0.7rem; font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+.section-title {
+  font-size: 2.2rem; font-weight: 800;
+  letter-spacing: -1px;
+  margin-bottom: 10px;
+}
+.section-sub { color: var(--muted); font-size: 0.95rem; line-height: 1.6; max-width: 720px; }
+
+/* PROGRAM CARDS */
+.programs-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)); gap: 22px; }
+.prog-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.prog-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+  border-color: rgba(255,255,255,0.1);
+}
+.prog-img { width: 100%; height: 200px; object-fit: cover; object-position: top; display: block; }
+.prog-body { padding: 26px; }
+.prog-channel {
+  font-size: 0.66rem; font-weight: 700;
+  letter-spacing: 1.5px; text-transform: uppercase;
+  margin-bottom: 10px;
+}
+.prog-name { font-size: 1.4rem; font-weight: 800; margin-bottom: 6px; letter-spacing: -0.5px; }
+.prog-host { color: var(--muted); font-size: 0.86rem; font-weight: 500; margin-bottom: 4px; }
+.prog-schedule { color: var(--muted); font-size: 0.76rem; margin-bottom: 14px; opacity: 0.7; }
+.prog-divider { height: 1px; background: var(--border); margin-bottom: 14px; }
+.prog-desc { color: var(--muted); font-size: 0.84rem; line-height: 1.7; }
+
+/* VALUE PROPS */
+.value-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 18px;
+}
+.value-card {
+  background: linear-gradient(135deg, rgba(255,23,68,0.05) 0%, rgba(22,22,31,1) 80%);
+  border: 1px solid rgba(255,23,68,0.15);
+  border-radius: 16px;
+  padding: 28px 26px;
+  transition: all 0.4s;
+}
+.value-card:hover {
+  border-color: rgba(255,23,68,0.4);
+  transform: translateY(-4px);
+}
+.value-card .icon {
+  display: flex; align-items: center; justify-content: center;
+  width: 46px; height: 46px;
+  border-radius: 12px;
+  background: rgba(255,23,68,0.15);
+  margin-bottom: 16px;
+  font-size: 1.3rem;
+  color: var(--mix-red);
+  font-weight: 900;
+}
+.value-card .title { font-size: 1.05rem; font-weight: 800; margin-bottom: 8px; }
+.value-card .desc { font-size: 0.85rem; color: var(--muted); line-height: 1.65; }
+
+/* DONDE VER */
+.where-grid {
+  display: flex; gap: 14px; flex-wrap: wrap;
+}
+.where-chip {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 14px 22px;
+  font-size: 0.86rem;
+}
+.where-chip.featured {
+  background: linear-gradient(135deg, rgba(255,23,68,0.18), rgba(255,109,0,0.10));
+  border: 1.5px solid rgba(255,23,68,0.5);
+  position: relative;
+}
+.where-chip.featured::before {
+  content: 'Nuevo';
+  position: absolute; top: -8px; right: 12px;
+  font-size: 0.55rem; font-weight: 800; letter-spacing: 1px;
+  color: #fff; background: var(--mix-red);
+  padding: 3px 9px; border-radius: 50px;
+  text-transform: uppercase;
+}
+.where-chip .name { font-weight: 800; color: #fff; }
+.where-chip .num { color: var(--mix-orange); margin-left: 8px; font-weight: 700; }
+.where-chip:not(.featured) .num { color: var(--muted); font-weight: 500; }
+
+/* CTA */
+.cta {
+  margin: 80px auto;
+  max-width: 1300px;
+  padding: 60px 40px;
+  background: linear-gradient(135deg, rgba(255,23,68,0.10) 0%, rgba(255,109,0,0.05) 100%);
+  border: 1px solid rgba(255,23,68,0.25);
+  border-radius: 24px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.cta::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--mix-red), var(--mix-orange), var(--mix-amber), var(--mix-red));
+  background-size: 200% auto;
+  animation: gradientShift 4s ease infinite;
+}
+.cta h2 {
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 900;
+  letter-spacing: -1px;
+  margin-bottom: 14px;
+  background: linear-gradient(135deg, #fff, var(--mix-orange));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.cta p { font-size: 1rem; color: var(--muted); max-width: 600px; margin: 0 auto 28px; line-height: 1.6; }
+.cta-btn {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 14px 32px;
+  background: linear-gradient(135deg, var(--mix-red), var(--mix-orange));
+  color: #fff;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 800; font-size: 0.92rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: all 0.3s;
+  box-shadow: 0 10px 30px rgba(255,23,68,0.3);
+}
+.cta-btn:hover { transform: translateY(-3px); box-shadow: 0 15px 40px rgba(255,23,68,0.4); }
+
+/* FOOTER */
+.footer { padding: 50px 40px; text-align: center; border-top: 1px solid var(--border); }
+.footer-logo { font-size: 1.2rem; font-weight: 800; letter-spacing: 4px; margin-bottom: 10px; }
+.footer-text { color: var(--muted); font-size: 0.8rem; }
+
+@media (max-width: 768px) {
+  .hero { padding: 110px 24px 60px; }
+  .section { padding: 60px 24px; }
+  .nav { padding: 12px 20px; }
+  .nav-links { gap: 16px; }
+  .programs-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-logo"><img src="logo_kuarzo_white.png" style="height:26px;vertical-align:middle" alt="Kuarzo"></div>
+  <div class="nav-links">
+    <a href="#grilla">Grilla</a>
+    <a href="#valor">Por qué Mix TV</a>
+    <a href="#donde">Dónde ver</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-tag"><span class="dot"></span>Nuevo canal de Kuarzo</div>
+  <h1>Mix TV</h1>
+  <div class="hero-headline">Periodismo, actualidad, entretenimiento y humor — las 24 horas en TV abierta digital.</div>
+  <p>El nuevo canal de Kuarzo Entertainment llega con una grilla en vivo de lunes a viernes y la mejor programación del fin de semana. Las voces más escuchadas del periodismo, el deporte y el espectáculo argentino, ahora en TV abierta digital.</p>
+
+  <!-- TDA 21.1 -->
+  <div class="tda-hero">
+    <div class="tda-main">
+      <div class="nuevo">Nuevo</div>
+      <div class="label">TDA — TV Digital Abierta</div>
+      <div class="channel">
+        <div class="channel-num">21.1</div>
+        <div class="channel-sub">Canal de aire</div>
+      </div>
+      <div class="channel-desc">Mix TV sale al aire por el canal <strong style="color:#fff">21.1</strong> de la Televisión Digital Abierta. Llegada gratuita, en alta definición y a todo el país.</div>
+    </div>
+    <div class="tda-side">
+      <div class="tda-side-item">
+        <div><div class="label">En cable</div><div class="name">Flow</div></div>
+        <div class="num">85</div>
+      </div>
+      <div class="tda-side-item">
+        <div><div class="label">Streaming</div><div class="name">YouTube Live</div></div>
+        <div class="num" style="font-size:1rem;color:var(--mix-red)">24/7</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STATS -->
+  <div class="stats-grid">
+    <div class="stat-card"><div class="num">9</div><div class="label">Programas en grilla</div></div>
+    <div class="stat-card"><div class="num">24h</div><div class="label">Programación continua</div></div>
+    <div class="stat-card"><div class="num">TV abierta</div><div class="label">Alcance nacional</div></div>
+    <div class="stat-card"><div class="num">HD</div><div class="label">Alta definición</div></div>
+  </div>
+</section>
+
+<!-- POR QUÉ MIX TV -->
+<section class="section" id="valor">
+  <div class="section-header reveal">
+    <div class="section-tag">Por qué Mix TV</div>
+    <h2 class="section-title">El nuevo lugar para tu marca en la TV argentina</h2>
+    <p class="section-sub">Un canal con audiencia en crecimiento, talento de primera línea y distribución en todas las pantallas — TV abierta, cable y streaming.</p>
+  </div>
+  <div class="value-grid">
+    <div class="value-card reveal reveal-delay-1">
+      <div class="icon">21.1</div>
+      <div class="title">TV abierta digital</div>
+      <div class="desc">Estamos en el canal 21.1 de la TDA. Llegada gratuita y en HD a todo el país, sin necesidad de cable ni suscripción.</div>
+    </div>
+    <div class="value-card reveal reveal-delay-2">
+      <div class="icon">24h</div>
+      <div class="title">Programación 24/7</div>
+      <div class="desc">Grilla en vivo de lunes a viernes con repeticiones estratégicas y fin de semana propio. Tu marca tiene espacio en cualquier franja.</div>
+    </div>
+    <div class="value-card reveal reveal-delay-3">
+      <div class="icon">★</div>
+      <div class="title">Talento de primera</div>
+      <div class="desc">Varsky, Trezeguet, Casanova, Almada, Paulino Rodriguez, Zuchovicki, Lopilato y más. Periodismo, deporte, espectáculo y humor.</div>
+    </div>
+    <div class="value-card reveal reveal-delay-1">
+      <div class="icon">▶</div>
+      <div class="title">Distribución 360</div>
+      <div class="desc">TDA 21.1 + Flow Ch. 85 + YouTube Live 24/7. Tu campaña corre en TV abierta, cable y streaming al mismo tiempo.</div>
+    </div>
+    <div class="value-card reveal reveal-delay-2">
+      <div class="icon">$</div>
+      <div class="title">Costo eficiente</div>
+      <div class="desc">El canal nuevo de Kuarzo. Tarifas competitivas y formatos PNT, auspicio, integración y banners para entrar con presupuestos accesibles.</div>
+    </div>
+    <div class="value-card reveal reveal-delay-3">
+      <div class="icon">↗</div>
+      <div class="title">Audiencia en crecimiento</div>
+      <div class="desc">Estrenamos canal con la marca y el respaldo de Kuarzo, el grupo detrás de Gran Hermano, Es Mi Sueño y Cuestión de Peso.</div>
+    </div>
+  </div>
+</section>
+
+<!-- GRILLA -->
+<section class="section" id="grilla">
+  <div class="section-header reveal">
+    <div class="section-tag">Grilla 2026</div>
+    <h2 class="section-title">Nuestra programación</h2>
+    <p class="section-sub">Grilla en vivo semana del 16 al 22 de Mayo 2026. Periodismo de mañana, actualidad de tarde y entretenimiento en prime time.</p>
+  </div>
+
+  <div class="programs-grid">
+    <div class="prog-card reveal reveal-delay-1">
+      <img class="prog-img" src="img/programs/mix-donde.png" alt="Donde Estamos">
+      <div class="prog-body">
+        <div class="prog-channel" style="color:#e91e63">Mix TV | L a V 7:00hs</div>
+        <div class="prog-name">Donde Estamos</div>
+        <div class="prog-host">Paulino Rodriguez, Julieta Tarres, Paulino Salamanca</div>
+        <div class="prog-schedule">Lunes a Viernes — 7:00 a 10:00hs · Repetición sáb/dom 7:00hs</div>
+        <div class="prog-divider"></div>
+        <div class="prog-desc">El matutino de Mix TV. Actualidad, noticias y análisis para arrancar el día informado.</div>
+      </div>
+    </div>
+
+    <div class="prog-card reveal reveal-delay-2">
+      <img class="prog-img" src="img/programs/mix-nosomos.png" alt="No Somos Nadie">
+      <div class="prog-body">
+        <div class="prog-channel" style="color:#42a5f5">Mix TV | L a V 10:00hs</div>
+        <div class="prog-name">No Somos Nadie</div>
+        <div class="prog-host">Juan Pablo Varsky, Eleonora Pérez Carezzi</div>
+        <div class="prog-schedule">Lunes a Viernes — 10:00 a 14:00hs · Repetición sáb/dom 10:00hs</div>
+        <div class="prog-divider"></div>
+        <div class="prog-desc">Varsky y Pérez Carezzi al frente del programa central de la mañana. Periodismo, entrevistas y opinión con las voces más respetadas.</div>
+      </div>
+    </div>
+
+    <div class="prog-card reveal reveal-delay-3">
+      <img class="prog-img" src="img/programs/mix-coworker.png" alt="Coworker">
+      <div class="prog-body">
+        <div class="prog-channel" style="color:#69f0ae">Mix TV | Todos los días 14:00hs</div>
+        <div class="prog-name">Coworker</div>
+        <div class="prog-host">Agustina Casanova, Mariano Almada</div>
+        <div class="prog-schedule">Todos los días — 14:00 a 17:00hs</div>
+        <div class="prog-divider"></div>
+        <div class="prog-desc">La tarde de Mix TV. Actualidad, entretenimiento y la mejor compañía para las tardes.</div>
+      </div>
+    </div>
+
+    <div class="prog-card reveal reveal-delay-1">
+      <img class="prog-img" src="img/programs/mix-locos.png" alt="Estamos Todos Locos">
+      <div class="prog-body">
+        <div class="prog-channel" style="color:#ff6d00">Mix TV | Sáb y Dom</div>
+        <div class="prog-name">Estamos Todos Locos</div>
+        <div class="prog-host">Darío Lopilato</div>
+        <div class="prog-schedule">Sábados y domingos — Varias franjas (6:00, 17:00, 21:00 y 12:00 AM)</div>
+        <div class="prog-divider"></div>
+        <div class="prog-desc">Darío Lopilato al frente del fin de semana de Mix TV. Humor, entrevistas y la mirada más desfachatada para sábados y domingos.</div>
+      </div>
+    </div>
+
+    <div class="prog-card reveal reveal-delay-2">
+      <img class="prog-img" src="img/programs/mix-sepico.png" alt="Se Picó">
+      <div class="prog-body">
+        <div class="prog-channel" style="color:#ffd600">Mix TV | L a V 18:00hs</div>
+        <div class="prog-name">Se Picó</div>
+        <div class="prog-host">Gastón Trezeguet, Lucho Ubfal</div>
+        <div class="prog-schedule">Lunes a Viernes — 18:00hs · Repetición 23:00hs y 5:00 AM</div>
+        <div class="prog-divider"></div>
+        <div class="prog-desc">El programa que sube la temperatura de la tarde-noche. Polémica, humor y los temas más calientes del día.</div>
+      </div>
+    </div>
+
+    <div class="prog-card reveal reveal-delay-3">
+      <img class="prog-img" src="img/programs/mix-fabrica.png" alt="La Fábrica del Podcast">
+      <div class="prog-body">
+        <div class="prog-channel" style="color:#80deea">Mix TV | Lun, Mié y fin de semana</div>
+        <div class="prog-name">La Fábrica del Podcast</div>
+        <div class="prog-host">Claudio Zuchovicki, Esteban Wolf</div>
+        <div class="prog-schedule">Lunes y miércoles 20:00hs · Sáb y dom 19:00hs</div>
+        <div class="prog-divider"></div>
+        <div class="prog-desc">El cruce entre el mundo podcast y la televisión. Los mejores contenidos del formato más escuchado, en prime time.</div>
+      </div>
+    </div>
+
+    <div class="prog-card reveal reveal-delay-1">
+      <img class="prog-img" src="img/programs/mix-puedefuncionar.png" alt="Puede Funcionar">
+      <div class="prog-body">
+        <div class="prog-channel" style="color:#b388ff">Mix TV | Martes 20:00hs</div>
+        <div class="prog-name">Puede Funcionar</div>
+        <div class="prog-schedule">Martes — 20:00hs</div>
+        <div class="prog-divider"></div>
+        <div class="prog-desc">El espacio del prime time de los martes. Ideas, conversaciones y entrevistas que ponen a prueba lo que puede funcionar — o no.</div>
+      </div>
+    </div>
+
+    <div class="prog-card reveal reveal-delay-2">
+      <img class="prog-img" src="img/programs/mix-camara.png" alt="Cámara en Mano">
+      <div class="prog-body">
+        <div class="prog-channel" style="color:#4db6ac">Mix TV | Lun 17hs y Jue 23hs</div>
+        <div class="prog-name">Cámara en Mano</div>
+        <div class="prog-schedule">Lunes 17:00hs · Jueves 23:00hs</div>
+        <div class="prog-divider"></div>
+        <div class="prog-desc">Reportajes en la calle, en vivo y sin filtros. La cámara que recorre el país para contar lo que nadie ve.</div>
+      </div>
+    </div>
+
+    <div class="prog-card reveal reveal-delay-3">
+      <img class="prog-img" src="img/programs/mix-policias.png" alt="Policías en Acción">
+      <div class="prog-body">
+        <div class="prog-channel" style="color:#ff5252">Mix TV | Prime time</div>
+        <div class="prog-name">Policías en Acción</div>
+        <div class="prog-schedule">Lunes 21:00hs · Sáb y dom 22:00hs · Repetición 2:00 y 4:00 AM</div>
+        <div class="prog-divider"></div>
+        <div class="prog-desc">El clásico documental que sigue el día a día de las fuerzas policiales. Adrenalina, casos reales y operativos en vivo.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DONDE VER -->
+<section class="section" id="donde">
+  <div class="section-header reveal">
+    <div class="section-tag">Distribución</div>
+    <h2 class="section-title">Dónde ver Mix TV</h2>
+    <p class="section-sub">En TV abierta digital, cable y streaming. Disponible en todas las pantallas para que tu marca esté donde está el público.</p>
+  </div>
+  <div class="where-grid">
+    <div class="where-chip featured">
+      <span class="name">TDA Digital</span> <span class="num">Ch. 21.1</span>
+    </div>
+    <div class="where-chip">
+      <span class="name">Flow</span> <span class="num">Ch. 85</span>
+    </div>
+    <div class="where-chip">
+      <span class="name">YouTube Live</span> <span class="num">24/7</span>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <h2>¿Querés llevar tu marca a Mix TV?</h2>
+  <p>PNTs, auspicios, integraciones, zócalos y banners. Hablemos del plan ideal para tu campaña en el nuevo canal de Kuarzo.</p>
+  <a href="mailto:comercial@kuarzo.com?subject=Mix%20TV%20-%20Consulta%20comercial" class="cta-btn">Hablemos de comercial →</a>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-logo">KUARZO</div>
+  <p class="footer-text">Mix TV — Kuarzo Entertainment Argentina | 2026</p>
+</footer>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
