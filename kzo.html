@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KZO — El canal de cable de Kuarzo</title>
+<meta name="description" content="KZO: el canal de Kuarzo con Andy Kusnetzoff, María O'Donnell, Matías Martín, Wainraich y más. Grilla, programas y dónde verlo.">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --pink: #e91e8c;
+    --accent: #f2f2f2;
+    --blue: #1a3a6b;
+    --blue-mid: #2756a8;
+    --dark: #0a0f1e;
+    --darker: #060b16;
+    --white: #ffffff;
+    --gray: #8a9bbf;
+    --card-bg: #0d1629;
+    --border: rgba(255,255,255,0.08);
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: "DM Sans", sans-serif; background: var(--dark); color: var(--white); overflow-x: hidden; }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 18px 48px;
+    background: rgba(6,11,22,0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+  nav img { height: 32px; }
+  nav .links { display: flex; gap: 32px; }
+  nav .links a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 14px; font-weight: 500; letter-spacing: 0.03em; transition: color 0.2s; }
+  nav .links a:hover { color: var(--pink); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    text-align: center;
+    padding: 120px 24px 80px;
+    position: relative;
+    background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(41,86,168,0.35) 0%, transparent 70%),
+                radial-gradient(ellipse 60% 40% at 80% 60%, rgba(233,30,140,0.15) 0%, transparent 60%),
+                var(--darker);
+    overflow: hidden;
+  }
+  .hero::before {
+    content: ""; position: absolute; inset: 0;
+    background: repeating-linear-gradient(0deg, transparent, transparent 79px, rgba(255,255,255,0.02) 80px),
+                repeating-linear-gradient(90deg, transparent, transparent 79px, rgba(255,255,255,0.02) 80px);
+    pointer-events: none;
+  }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(233,30,140,0.15); border: 1px solid rgba(233,30,140,0.4);
+    color: var(--pink); font-size: 12px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
+    padding: 6px 16px; border-radius: 100px; margin-bottom: 36px;
+  }
+  .hero-badge::before { content: "●"; font-size: 8px; animation: blink 1.5s infinite; }
+  @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
+
+  .hero-logo {
+    width: 340px; max-width: 80vw;
+    margin-bottom: 32px;
+    filter: drop-shadow(0 0 40px rgba(233,30,140,0.4));
+    animation: fadeUp 0.8s ease both;
+  }
+  @keyframes fadeUp { from{opacity:0;transform:translateY(24px)} to{opacity:1;transform:translateY(0)} }
+
+  .hero-sub {
+    font-size: clamp(16px, 2.5vw, 20px); color: rgba(255,255,255,0.7);
+    max-width: 600px; line-height: 1.6; margin-bottom: 48px;
+    animation: fadeUp 0.8s 0.15s ease both;
+  }
+  .hero-desc {
+    font-size: 15px; color: var(--gray); max-width: 640px; line-height: 1.7; margin-bottom: 56px;
+    animation: fadeUp 0.8s 0.25s ease both;
+  }
+
+  /* BADGES ROW */
+  .badges {
+    display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin-bottom: 64px;
+    animation: fadeUp 0.8s 0.35s ease both;
+  }
+  .badge {
+    display: flex; flex-direction: column; align-items: center; gap: 4px;
+    background: var(--card-bg); border: 1px solid var(--border);
+    padding: 16px 24px; border-radius: 12px; min-width: 100px;
+  }
+  .badge-val { font-family: "Bebas Neue", sans-serif; font-size: 28px; color: var(--pink); line-height: 1; }
+  .badge-lbl { font-size: 11px; color: var(--gray); text-transform: uppercase; letter-spacing: 0.08em; }
+
+  .stat-row {
+    display: flex; flex-wrap: wrap; gap: 24px; justify-content: center;
+    animation: fadeUp 0.8s 0.45s ease both;
+  }
+  .stat { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--gray); }
+  .stat strong { color: var(--white); font-weight: 600; }
+
+  /* SECTION */
+  section { padding: 100px 24px; max-width: 1200px; margin: 0 auto; }
+  .section-label {
+    font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--pink); margin-bottom: 16px;
+  }
+  .section-title { font-family: "Bebas Neue", sans-serif; font-size: clamp(36px, 5vw, 56px); line-height: 1.05; margin-bottom: 16px; }
+  .section-sub { font-size: 16px; color: var(--gray); max-width: 560px; line-height: 1.6; margin-bottom: 64px; }
+
+  /* VALUE GRID */
+  .value-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2px;
+    border: 1px solid var(--border); border-radius: 16px; overflow: hidden;
+  }
+  .value-card {
+    background: var(--card-bg); padding: 32px 28px;
+    border: 1px solid var(--border);
+    transition: background 0.2s;
+  }
+  .value-card:hover { background: #111c35; }
+  .value-icon { font-size: 28px; margin-bottom: 16px; display: block; }
+  .value-title { font-family: "Bebas Neue", sans-serif; font-size: 22px; letter-spacing: 0.04em; margin-bottom: 8px; color: var(--white); }
+  .value-desc { font-size: 14px; color: var(--gray); line-height: 1.6; }
+
+  /* PROGRAM GRID */
+  .programs-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 24px;
+  }
+  .program-card {
+    background: var(--card-bg); border: 1px solid var(--border); border-radius: 16px;
+    overflow: hidden; transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .program-card:hover { transform: translateY(-4px); box-shadow: 0 20px 40px rgba(0,0,0,0.4); }
+  .program-card img { width: 100%; height: 180px; object-fit: cover; display: block; }
+  .program-body { padding: 20px; }
+  .program-tag { font-size: 11px; color: var(--pink); font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 8px; }
+  .program-name { font-family: "Bebas Neue", sans-serif; font-size: 26px; letter-spacing: 0.03em; margin-bottom: 6px; }
+  .program-cast { font-size: 13px; color: var(--gray); margin-bottom: 8px; }
+  .program-sched { font-size: 12px; color: rgba(255,255,255,0.4); margin-bottom: 10px; font-style: italic; }
+  .program-desc { font-size: 13px; color: var(--gray); line-height: 1.5; }
+
+  /* DISTRIBUTION */
+  .dist-section { background: #070d1a; padding: 80px 24px; }
+  .dist-inner { max-width: 1200px; margin: 0 auto; }
+  .dist-pills { display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; margin-top: 40px; }
+  .dist-pill {
+    background: var(--card-bg); border: 1px solid var(--border);
+    padding: 20px 36px; border-radius: 100px;
+    font-size: 16px; font-weight: 600; letter-spacing: 0.04em;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .dist-pill:hover { border-color: var(--pink); color: var(--pink); }
+
+  /* CTA */
+  .cta-section {
+    background: linear-gradient(135deg, rgba(233,30,140,0.15), rgba(39,86,168,0.2));
+    border: 1px solid rgba(233,30,140,0.25);
+    border-radius: 24px; padding: 72px 48px; text-align: center;
+    margin: 0 24px 80px; max-width: 1200px; margin-left: auto; margin-right: auto;
+  }
+  .cta-section h2 { font-family: "Bebas Neue", sans-serif; font-size: clamp(32px, 5vw, 52px); margin-bottom: 16px; }
+  .cta-section p { color: var(--gray); max-width: 500px; margin: 0 auto 36px; line-height: 1.6; }
+  .cta-btn {
+    display: inline-block; background: var(--pink); color: white; font-weight: 600;
+    padding: 16px 40px; border-radius: 100px; text-decoration: none; font-size: 16px;
+    transition: opacity 0.2s, transform 0.2s;
+  }
+  .cta-btn:hover { opacity: 0.85; transform: scale(1.02); }
+
+  /* FOOTER */
+  footer {
+    background: var(--darker); border-top: 1px solid var(--border);
+    padding: 32px 48px; display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 16px;
+  }
+  footer img { height: 24px; opacity: 0.6; }
+  footer p { font-size: 13px; color: rgba(255,255,255,0.3); }
+
+  @media (max-width: 768px) {
+    nav { padding: 14px 20px; }
+    nav .links { gap: 20px; }
+    .hero { padding: 100px 20px 60px; }
+    section { padding: 70px 20px; }
+    footer { padding: 24px 20px; }
+    .cta-section { padding: 48px 24px; margin: 0 16px 60px; }
+  }
+</style>
+<style>
+  .hero-word { font-family:"Bebas Neue",sans-serif; font-size:clamp(120px,22vw,220px); line-height:.85; letter-spacing:.04em;
+    background:linear-gradient(180deg,#fff 0%,#9aa3b5 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+    margin-bottom:28px; animation:fadeUp .8s ease both; filter:drop-shadow(0 0 40px rgba(255,255,255,.12)); }
+  .hero-badge { background:rgba(255,255,255,.08); border-color:rgba(255,255,255,.3); color:#fff; }
+  .badge-val { color:#fff; }
+  .section-label { color:#c9cfdb; }
+  .program-tag { color:#c9cfdb; }
+  .program-card img { object-position: top; }
+  .cta-section { background:linear-gradient(135deg,rgba(255,255,255,.07),rgba(39,86,168,.2)); border-color:rgba(255,255,255,.18); }
+  .cta-btn { background:#fff; color:#0a0f1e; }
+  nav .links a:hover, .dist-pill:hover { color:#fff; border-color:#fff; }
+  .dist-pill small { color:var(--gray); font-weight:500; margin-left:8px; }
+  /* GRILLA SEMANAL */
+  .week { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:20px; }
+  .day { background:var(--card-bg); border:1px solid var(--border); border-radius:16px; padding:22px; }
+  .day h3 { font-family:"Bebas Neue",sans-serif; font-size:26px; letter-spacing:.04em; margin-bottom:14px; }
+  .slot { display:grid; grid-template-columns:104px 1fr; gap:12px; padding:9px 0; border-top:1px solid var(--border); font-size:13.5px; }
+  .slot .t { color:var(--gray); font-variant-numeric:tabular-nums; }
+  .slot .p { color:#fff; font-weight:600; }
+  .slot .p small { display:block; color:var(--gray); font-weight:400; font-size:12px; margin-top:2px; }
+  .slot.filler .p { color:rgba(255,255,255,.55); font-weight:500; }
+  @media (max-width:768px){ nav .links{gap:16px} nav .links a{font-size:13px} .slot{grid-template-columns:92px 1fr} }
+</style>
+</head>
+<body>
+
+<nav>
+  <img src="logo_kuarzo_white.png" alt="Kuarzo">
+  <div class="links">
+    <a href="#programas">Programas</a>
+    <a href="#grilla">Grilla</a>
+    <a href="#donde">Dónde ver</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-badge">Canal de Kuarzo Entertainment</div>
+  <div class="hero-word">KZO</div>
+  <p class="hero-sub">Las voces de Urbana Play, ahora en pantalla. Entretenimiento, actualidad y talk shows todo el día.</p>
+  <p class="hero-desc">Andy Kusnetzoff, María O'Donnell, Matías Martín, Sebastián Wainraich, Diego Poggi y más: los programas más escuchados de la radio, en vivo de lunes a viernes, con fin de semana propio.</p>
+
+  <div class="badges">
+    <div class="badge"><span class="badge-val">8</span><span class="badge-lbl">Programas</span></div>
+    <div class="badge"><span class="badge-val">35.2</span><span class="badge-lbl">TDA</span></div>
+    <div class="badge"><span class="badge-val">30</span><span class="badge-lbl">Flow</span></div>
+    <div class="badge"><span class="badge-val">199</span><span class="badge-lbl">DirecTV</span></div>
+    <div class="badge"><span class="badge-val">15</span><span class="badge-lbl">Telecentro</span></div>
+  </div>
+
+  <div class="stat-row">
+    <div class="stat">🎙 <strong>En vivo</strong> — Lunes a viernes 6 a 22hs</div>
+    <div class="stat">📺 <strong>Cable + TDA</strong> — 4 plataformas</div>
+    <div class="stat">🎯 <strong>HD</strong> — DirecTV 1199</div>
+  </div>
+</div>
+
+<!-- PROGRAMAS -->
+<section id="programas">
+  <div class="section-label">Programas</div>
+  <h2 class="section-title">Nuestra programación</h2>
+  <p class="section-sub">Grilla semana del sábado 26 de Septiembre al viernes 2 de Octubre 2026. Del primer mate a la noche, con los conductores más escuchados.</p>
+
+  <div class="programs-grid">
+
+    <div class="program-card">
+      <img src="img/conductors/maria-odonnell.png" alt="De Acá en Más">
+      <div class="program-body">
+        <div class="program-tag">KZO · L a V 6:00hs</div>
+        <div class="program-name">De Acá en Más</div>
+        <div class="program-cast">María O'Donnell</div>
+        <div class="program-sched">Lunes a Viernes — 6:00 a 9:00hs · Repetición 4:30 AM</div>
+        <p class="program-desc">El arranque del día con María O'Donnell. Actualidad, entrevistas y análisis para empezar la mañana informado.</p>
+      </div>
+    </div>
+
+    <div class="program-card">
+      <img src="img/conductors/andy-perros.jpg" alt="Perros de la Calle">
+      <div class="program-body">
+        <div class="program-tag">KZO · L a V 9:00hs</div>
+        <div class="program-name">Perros de la Calle</div>
+        <div class="program-cast">Andy Kusnetzoff</div>
+        <div class="program-sched">Lunes a Viernes — 9:00 a 13:00hs</div>
+        <p class="program-desc">El programa más escuchado de la radio argentina, ahora en pantalla. Andy Kusnetzoff junto a su equipo en la versión televisiva desde Urbana Play.</p>
+      </div>
+    </div>
+
+    <div class="program-card">
+      <img src="img/conductors/todo-pasa.png" alt="Todo Pasa">
+      <div class="program-body">
+        <div class="program-tag">KZO · L a V 13:00hs</div>
+        <div class="program-name">Todo Pasa</div>
+        <div class="program-cast">Matías Martín</div>
+        <div class="program-sched">Lunes a Viernes — 13:00 a 16:00hs</div>
+        <p class="program-desc">Actualidad, entrevistas y lo mejor del entretenimiento. El magazine que cubre todos los temas con un equipo de primera.</p>
+      </div>
+    </div>
+
+    <div class="program-card">
+      <img src="img/conductors/vuelta-media.png" alt="Vuelta y Media">
+      <div class="program-body">
+        <div class="program-tag">KZO · L a V 16:00hs</div>
+        <div class="program-name">Vuelta y Media</div>
+        <div class="program-cast">Sebastián Wainraich, Julieta Pink</div>
+        <div class="program-sched">Lunes a Viernes — 16:00 a 19:00hs</div>
+        <p class="program-desc">Humor, actualidad y conversaciones con los mejores invitados. Wainraich y su equipo en el programa más divertido de la tarde.</p>
+      </div>
+    </div>
+
+    <div class="program-card">
+      <img src="img/conductors/olvidate-todo.png" alt="Olvidate de Todo">
+      <div class="program-body">
+        <div class="program-tag">KZO · L a V 19:00hs</div>
+        <div class="program-name">Olvidate de Todo</div>
+        <div class="program-cast">Diego Poggi, Anaís Castro</div>
+        <div class="program-sched">Lunes a Viernes — 19:00 a 22:00hs</div>
+        <p class="program-desc">El cierre del día con la mejor onda. Diego Poggi y Anaís Castro con entretenimiento, humor y los temas del momento.</p>
+      </div>
+    </div>
+
+    <div class="program-card">
+      <img src="img/conductors/musica-es-todo.png" alt="Música es Todo">
+      <div class="program-body">
+        <div class="program-tag">KZO · Miércoles 22:00hs</div>
+        <div class="program-name">Música es Todo</div>
+        <div class="program-cast">Clemente Cancela, Pauli Echeverría</div>
+        <div class="program-sched">Miércoles — 22:00 a 0:00hs</div>
+        <p class="program-desc">El programa musical de KZO. Clemente Cancela y Pauli Echeverría recorren lo mejor de la música con entrevistas y shows en vivo.</p>
+      </div>
+    </div>
+
+    <div class="program-card">
+      <img src="img/conductors/punto-caramelo.png" alt="Punto Caramelo">
+      <div class="program-body">
+        <div class="program-tag">KZO · Sábados 10:00hs</div>
+        <div class="program-name">Punto Caramelo</div>
+        <div class="program-cast">En vivo</div>
+        <div class="program-sched">Sábados — 10:00 a 13:00hs</div>
+        <p class="program-desc">El magazine del fin de semana. Entretenimiento, entrevistas y la mejor programación en vivo para el sábado.</p>
+      </div>
+    </div>
+
+    <div class="program-card">
+      <img src="img/programs/kzo-pink.png" alt="Las Tardes con Pink">
+      <div class="program-body">
+        <div class="program-tag">KZO · Sáb y Dom 17:00hs</div>
+        <div class="program-name">Las Tardes con Pink</div>
+        <div class="program-cast">Julieta Pink</div>
+        <div class="program-sched">Sábados y domingos — 17:00 a 18:00hs</div>
+        <p class="program-desc">El programa de fin de semana de KZO. Lifestyle, entrevistas y la mejor compañía para la tarde.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- GRILLA -->
+<section id="grilla" style="padding-top:0">
+  <div class="section-label">Grilla semanal</div>
+  <h2 class="section-title">Hora por hora</h2>
+  <p class="section-sub">Sábado 26/09 al viernes 02/10/2026.</p>
+  <div class="week">
+    <div class="day"><h3>Lunes a Viernes</h3><div class="slot"><span class="t">06:00 – 09:00</span><span class="p">De Acá en Más<small>María O'Donnell</small></span></div><div class="slot"><span class="t">09:00 – 13:00</span><span class="p">Perros de la Calle<small>Andy Kusnetzoff</small></span></div><div class="slot"><span class="t">13:00 – 16:00</span><span class="p">Todo Pasa<small>Matías Martín</small></span></div><div class="slot"><span class="t">16:00 – 19:00</span><span class="p">Vuelta y Media<small>Sebastián Wainraich</small></span></div><div class="slot"><span class="t">19:00 – 22:00</span><span class="p">Olvidate de Todo<small>Diego Poggi, Anaís Castro</small></span></div><div class="slot"><span class="t">22:00 – 00:00</span><span class="p">Música es Todo <small>Miércoles · Lun, mar, jue y vie: Lo mejor de Urbana Play</small></span></div><div class="slot filler"><span class="t">00:00 – 02:00</span><span class="p">Lo mejor de Urbana Play</span></div><div class="slot filler"><span class="t">02:00 – 04:30</span><span class="p">El Valor de tus Joyas<small>Lunes a jueves · Viernes: Lo mejor de Urbana Play</small></span></div><div class="slot filler"><span class="t">04:30 – 06:00</span><span class="p">De Acá en Más<small>Repetición del día</small></span></div></div><div class="day"><h3>Sábado</h3><div class="slot filler"><span class="t">06:00 – 10:00</span><span class="p">Lo mejor de Urbana Play</span></div><div class="slot"><span class="t">10:00 – 13:00</span><span class="p">Punto Caramelo<small>En vivo</small></span></div><div class="slot filler"><span class="t">13:00 – 17:00</span><span class="p">Lo mejor de Urbana Play</span></div><div class="slot"><span class="t">17:00 – 18:00</span><span class="p">Las Tardes con Pink</span></div><div class="slot filler"><span class="t">18:00 – 01:00</span><span class="p">Lo mejor de Urbana Play</span></div><div class="slot filler"><span class="t">01:00 – 01:30</span><span class="p">Hair Recovery</span></div><div class="slot filler"><span class="t">02:00 – 06:00</span><span class="p">Lo mejor de Urbana Play</span></div></div><div class="day"><h3>Domingo</h3><div class="slot filler"><span class="t">06:00 – 17:00</span><span class="p">Lo mejor de Urbana Play</span></div><div class="slot"><span class="t">17:00 – 18:00</span><span class="p">Las Tardes con Pink</span></div><div class="slot filler"><span class="t">18:00 – 01:00</span><span class="p">Lo mejor de Urbana Play</span></div><div class="slot filler"><span class="t">01:00 – 01:30</span><span class="p">Hair Recovery</span></div><div class="slot filler"><span class="t">02:00 – 04:30</span><span class="p">El Valor de tus Joyas</span></div><div class="slot filler"><span class="t">04:30 – 06:00</span><span class="p">Lo mejor de Urbana Play</span></div></div>
+  </div>
+</section>
+
+<!-- DISTRIBUCIÓN -->
+<div class="dist-section" id="donde">
+  <div class="dist-inner">
+    <div class="section-label" style="text-align:center">Distribución</div>
+    <h2 class="section-title" style="text-align:center">Dónde ver KZO</h2>
+    <p class="section-sub" style="margin:0 auto 0; text-align:center">En cable y en TV digital abierta, para que tu marca esté donde está el público.</p>
+    <div class="dist-pills">
+      <div class="dist-pill">Flow<small>Ch. 30</small></div>
+      <div class="dist-pill">DirecTV<small>Ch. 199 / HD 1199</small></div>
+      <div class="dist-pill">Telecentro<small>Ch. 15</small></div>
+      <div class="dist-pill">TDA Digital<small>Ch. 35.2</small></div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
+<div style="padding: 80px 24px 0;">
+  <div class="cta-section">
+    <h2>¿Querés llevar tu marca a KZO?</h2>
+    <p>PNTs, auspicios, integraciones, zócalos y banners. Hablemos del plan ideal para tu campaña.</p>
+    <a href="mailto:comercial@kuarzo.com?subject=KZO%20-%20Consulta%20comercial" class="cta-btn">Hablemos de comercial →</a>
+  </div>
+</div>
+
+<footer>
+  <img src="logo_kuarzo_white.png" alt="Kuarzo">
+  <p>KZO — Kuarzo Entertainment Argentina | 2026</p>
+</footer>
+
+</body>
+</html>
